@@ -1,0 +1,378 @@
+{"test":1}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867115168}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867115161}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867115168}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867115170}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867115171}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867115175}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867115162}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867115162}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867115162}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867115163}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867115164}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867115163}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867115194}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867115195}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867115165}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867115165}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867115167}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867115166}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867115201}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867136340}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867136348}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867136348}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867136347}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867136348}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867136348}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867136341}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867136349}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867136341}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867136341}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867136341}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867136342}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867136341}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867136342}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867136342}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867136342}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867137150}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867137150}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867137150}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867137150}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867137151}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867137150}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867137151}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867137151}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867137152}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867137154}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867137155}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867137156}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137156}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137156}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867137157}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867137158}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867137585}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867137586}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867137586}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867137586}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867137586}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137587}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137587}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867137587}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867137589}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867137768}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867137769}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867137769}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867137769}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867137769}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137769}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137769}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867137770}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867137770}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867137930}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867137930}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867137930}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867137930}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867137931}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867137930}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867137931}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867137931}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867137931}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867137931}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867137931}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867137933}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137933}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867137933}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867137933}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867137934}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867138081}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867138081}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867138081}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867138082}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867138082}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867138082}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867138082}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867138083}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867138083}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867138083}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867138084}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867138084}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138085}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138085}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867138085}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867138087}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867138224}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867138224}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867138225}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867138226}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867138226}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138226}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138226}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867138226}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867138227}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867138381}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867138381}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867138382}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867138383}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867138383}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138383}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138383}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867138383}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867138384}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867138536}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867138536}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867138536}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867138537}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867138538}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138538}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138538}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867138539}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867138539}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867138678}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867138678}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867138678}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867138678}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867138678}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867138678}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138679}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867138680}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867138680}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867138680}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867140058}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867140058}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867140058}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867140059}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867140060}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867140060}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867140060}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867140060}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867140061}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867141945}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867141946}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867141946}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867141946}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867141947}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867141947}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867141948}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867141948}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867141950}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867141949}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867141951}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867141955}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867141955}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867141956}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867141956}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867141957}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867221369}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867221369}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"loading","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867221375}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867221374}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867221374}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867221369}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867221370}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867221370}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867221371}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867221370}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867221371}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867221411}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867221411}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867221412}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867221412}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9685},"timestamp":1790867221421}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867221450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867221450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9685},"timestamp":1790867221452}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867258449}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867258454}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867258450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867258450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867258450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867258454}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867258450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867258450}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867258451}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867258451}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867258451}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867258452}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867258451}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867258453}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867258467}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867258453}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867258517}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867258517}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867258519}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:73","message":"AdminRouter defined","data":{"type":"object"},"timestamp":1790867260754}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/plans","title":"Gói dịch vụ","hasHandler":true},"timestamp":1790867260755}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/dashboard","title":"Dashboard","hasHandler":true},"timestamp":1790867260754}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/users","title":"Người dùng","hasHandler":true},"timestamp":1790867260755}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/finance","title":"Tài chính","hasHandler":true},"timestamp":1790867260757}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/orders","title":"Đơn hàng","hasHandler":true},"timestamp":1790867260756}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/tickets","title":"Hỗ trợ","hasHandler":true},"timestamp":1790867260759}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/content","title":"Nội dung","hasHandler":true},"timestamp":1790867260760}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/servers","title":"Server","hasHandler":true},"timestamp":1790867260757}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:14","message":"AdminRouter.add","data":{"path":"/settings","title":"Cài đặt","hasHandler":true},"timestamp":1790867260760}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867260762}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867260763}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867260763}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:65","message":"AdminRouter.init","data":{"routes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867260763}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867260764}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867260765}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867334285}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867334286}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867335263}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867335264}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867336497}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867336498}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867336667}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867336667}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867336839}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867336840}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867337011}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867337012}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867337165}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867337165}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867337491}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867337492}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867337836}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867337837}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867337993}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867337993}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867338169}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867338170}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867338335}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867338336}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867338993}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867338993}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867339272}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867339272}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867339444}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867339445}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867339615}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867339615}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867339783}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867339784}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867339942}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867339943}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867340114}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867340114}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867340284}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867340284}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867340456}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867340456}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867340653}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867340655}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867341084}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867341085}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867341259}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867341260}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867341433}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867341434}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867341603}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867341603}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867341776}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867341777}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867341996}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867341996}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867342187}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867342188}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867342353}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867342512}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867342513}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867342697}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867342697}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867342805}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867342806}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867342982}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867342982}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867343196}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867343197}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867343339}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867343340}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867343547}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867343547}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867343757}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867343758}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867343947}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867343949}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867344131}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867344131}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867344326}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867344326}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867344522}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867344523}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:14","message":"admin.js IIFE start","data":{"readyState":"interactive","hasRouter":"object","hasContent":true,"hasAdmin":true},"timestamp":1790867344684}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"admin.js:42","message":"admin.js boot()","data":{"hasRouter":"object"},"timestamp":1790867344684}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/content","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867895735}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":6907},"timestamp":1790867895736}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867895735}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/tickets","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867896222}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867896222}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":6505},"timestamp":1790867896223}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/settings","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867897018}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867897018}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":6144},"timestamp":1790867897018}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/content","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867897684}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":6907},"timestamp":1790867897685}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867897684}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867898139}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/finance","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867898138}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":5550},"timestamp":1790867898140}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/servers","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867898338}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867898338}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":7751},"timestamp":1790867898339}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/plans","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867902750}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867902750}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":10876},"timestamp":1790867902753}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/dashboard","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867902998}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867902998}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":9868},"timestamp":1790867902999}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:28","message":"AdminRouter.render called","data":{"path":"/plans","registeredRoutes":["/dashboard","/plans","/users","/orders","/servers","/finance","/tickets","/content","/settings"]},"timestamp":1790867908297}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:42","message":"Before render to #adContent","data":{"hasBox":true,"hasHandler":true},"timestamp":1790867908297}
+{"sessionId":"9cd7d3","runId":"pre-fix","location":"router.js:49","message":"Rendered ok","data":{"htmlLen":10876},"timestamp":1790867908299}

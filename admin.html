@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Admin · VPSSIEUTOC.VN</title>
+    <link rel="stylesheet" href="app/assets/vendor/bootstrap-icons/bootstrap-icons.min.css?v=v10">
+    <link rel="stylesheet" href="app/assets/css/admin.css?v=v10">
+</head>
+<body>
+
+<div class="vm-shell">
+
+    <aside class="vm-sidebar" id="adSidebar">
+        <div class="vm-brand">
+            <i class="bi bi-shield-lock-fill"></i>
+            <div>
+                <div class="vm-brand-name">Admin Panel</div>
+                <div class="vm-brand-sub">VPSSIEUTOC.VN</div>
+            </div>
+        </div>
+        <nav class="vm-nav" id="adNav"></nav>
+        <div class="vm-sidebar-foot">
+            <button class="vm-ibtn" id="adThemeToggle" title="Sáng / Tối"><i class="bi bi-moon-stars"></i></button>
+            <a class="vm-ibtn" href="app/index.html" title="Về trang chủ"><i class="bi bi-box-arrow-left"></i></a>
+        </div>
+    </aside>
+
+    <main class="vm-main">
+        <header class="vm-topbar">
+            <button class="vm-ibtn vm-only-mobile" id="adBurger"><i class="bi bi-list"></i></button>
+            <div class="vm-topbar-title" id="adPageTitle">Dashboard</div>
+            <div class="vm-topbar-tools">
+                <div class="vm-search">
+                    <i class="bi bi-search"></i>
+                    <input placeholder="Tìm kiếm nhanh…">
+                </div>
+                <button class="vm-ibtn" title="Thông báo"><i class="bi bi-bell"></i></button>
+                <div class="vm-userchip">
+                    <div class="vm-avatar">A</div>
+                    <div>
+                        <div class="vm-userchip-name">Admin</div>
+                        <div class="vm-userchip-role">Super admin</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="vm-content" id="adContent"></section>
+    </main>
+</div>
+
+<script>
+window.addEventListener('error', function (e) {
+    var box = document.getElementById('adContent');
+    if (box) box.innerHTML = '<div class="vm-empty" style="color:var(--vm-danger);text-align:left;white-space:pre-wrap"><b>JS Error:</b>\n' +
+        (e.message || 'unknown') + '\n  at ' + (e.filename || '?') + ':' + (e.lineno || '?') + '</div>';
+});
+</script>
+
+<script defer src="app/assets/js/ui.js?v=v10"></script>
+<script defer src="app/assets/js/db.js?v=v10"></script>
+<script defer src="app/assets/js/admin/router.js?v=v10"></script>
+<script defer src="app/assets/js/admin/dashboard.js?v=v10"></script>
+<script defer src="app/assets/js/admin/plans.js?v=v10"></script>
+<script defer src="app/assets/js/admin/users.js?v=v10"></script>
+<script defer src="app/assets/js/admin/orders.js?v=v10"></script>
+<script defer src="app/assets/js/admin/servers.js?v=v10"></script>
+<script defer src="app/assets/js/admin/finance.js?v=v10"></script>
+<script defer src="app/assets/js/admin/tickets.js?v=v10"></script>
+<script defer src="app/assets/js/admin/chat.js?v=v10"></script>
+<script defer src="app/assets/js/admin/content.js?v=v10"></script>
+<script defer src="app/assets/js/admin/settings.js?v=v10"></script>
+<script defer src="app/assets/js/admin.js?v=v10"></script>
+</body>
+</html>
