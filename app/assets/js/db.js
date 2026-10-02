@@ -162,7 +162,7 @@ const DEFAULT_DATA = {
         { id: 5, title: 'Hỗ trợ IPv6 đầy đủ',                       body: 'Tất cả VPS mới đều được cấp 1 địa chỉ IPv4 + subnet IPv6 /64. Vui lòng vào panel server để xem chi tiết.', type: 'release', pinned: false, created_at: '2026-09-05T11:15:00Z' },
     ],
     docs: [
-        { id: 1,  cat: 'getting-started', title: 'Bắt đầu với VPSSIEUTOC.VN',   body: 'Hướng dẫn từ đăng ký đến khởi tạo server đầu tiên trong vòng 5 phút.' },
+        { id: 1,  cat: 'getting-started', title: 'Bắt đầu với TáoVPS Web',   body: 'Hướng dẫn từ đăng ký đến khởi tạo server đầu tiên trong vòng 5 phút.' },
         { id: 2,  cat: 'getting-started', title: 'Kết nối SSH vào VPS Linux',    body: 'Sử dụng ssh root@&lt;ip&gt; hoặc PuTTY trên Windows. Mật khẩu gửi qua email khi tạo.' },
         { id: 3,  cat: 'getting-started', title: 'Kết nối Remote Desktop Windows', body: 'Mở Remote Desktop Connection, nhập IP, đăng nhập với Administrator + mật khẩu nhận qua email.' },
         { id: 4,  cat: 'advanced',      title: 'Cài đặt LEMP (Linux + Nginx + MySQL + PHP)', body: 'Hướng dẫn chi tiết cài LEMP trên Ubuntu 22.04.' },
@@ -255,6 +255,7 @@ const DB = {
 };
 
 const SESSION_KEY = 'vpssieutoc_session_v3';
+const ADMIN_SESSION_KEY = 'vpssieutoc_admin_session_v1';
 const REMEMBER_KEY = 'vpssieutoc_remember';
 
 const Session = {
@@ -277,12 +278,15 @@ const Session = {
         const id = Session._read();
         if (!id) return null;
         const u = DB.find('users', id);
-        return u && u.status === 'active' ? u : null;
+        // Tách biệt: Cổng khách hàng chỉ nhận tài khoản customer
+        return (u && u.status === 'active' && u.role === 'customer') ? u : null;
     },
     login(email, password) {
         const user = DB.findWhere('users', u => u.email === email && u.password === password);
         if (!user) throw new Error('Email hoặc mật khẩu không đúng');
         if (user.status === 'locked') throw new Error('Tài khoản đã bị khoá');
+        // Không cho phép đăng nhập tài khoản admin ở cổng khách hàng
+        if (user.role === 'admin') throw new Error('Tài khoản quản trị viên vui lòng đăng nhập tại trang Quản Trị (admin.html)');
         Session._store(SESSION_KEY, String(user.id));
         try { sessionStorage.setItem(SESSION_KEY, String(user.id)); } catch (e) {}
         return user;
@@ -315,5 +319,40 @@ const Session = {
     },
 };
 
+const AdminSession = {
+    _store(key, val) {
+        try { localStorage.setItem(key, val); } catch (e) {}
+    },
+    _remove(key) {
+        try { localStorage.removeItem(key); } catch (e) {}
+        try { sessionStorage.removeItem(key); } catch (e) {}
+    },
+    _read() {
+        try { return localStorage.getItem(ADMIN_SESSION_KEY) || sessionStorage.getItem(ADMIN_SESSION_KEY); }
+        catch (e) { return null; }
+    },
+    current() {
+        const id = AdminSession._read();
+        if (!id) return null;
+        const u = DB.find('users', id);
+        // Tách biệt: Cổng quản trị chỉ nhận tài khoản có vai trò admin
+        return (u && u.status === 'active' && u.role === 'admin') ? u : null;
+    },
+    login(email, password) {
+        const user = DB.findWhere('users', u => u.email === email && u.password === password);
+        if (!user) throw new Error('Email hoặc mật khẩu không đúng');
+        if (user.status === 'locked') throw new Error('Tài khoản đã bị khoá');
+        // Không cho phép tài khoản customer đăng nhập vào trang quản trị
+        if (user.role !== 'admin') throw new Error('Tài khoản khách hàng không có quyền truy cập trang quản trị');
+        AdminSession._store(ADMIN_SESSION_KEY, String(user.id));
+        try { sessionStorage.setItem(ADMIN_SESSION_KEY, String(user.id)); } catch (e) {}
+        return user;
+    },
+    logout() {
+        AdminSession._remove(ADMIN_SESSION_KEY);
+    },
+};
+
 window.DB = DB;
 window.Session = Session;
+window.AdminSession = AdminSession;

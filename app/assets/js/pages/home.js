@@ -121,12 +121,11 @@
 
                 // CTA
                 '<section class="sec sec-tight" style="padding-bottom:120px">' +
-                    '<div class="wrap reveal" style="text-align:center;padding:60px 24px;background:linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);color:var(--bg);border-radius:var(--radius-xl);position:relative;overflow:hidden">' +
-                        '<div style="position:absolute;inset:0;background:radial-gradient(ellipse at top right, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 60%);pointer-events:none"></div>' +
-                        '<div style="position:relative;z-index:1">' +
-                            '<h2 style="color:inherit;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;letter-spacing:-0.03em;margin:0 0 12px">Sẵn sàng bắt đầu?</h2>' +
-                            '<p style="opacity:.7;margin:0 0 28px;font-size:1.02rem">Đăng ký miễn phí và nhận ngay 100.000đ vào ví.</p>' +
-                            '<a href="#/register" class="btn btn-lg" style="background:var(--bg);color:var(--ink)">Tạo tài khoản miễn phí</a>' +
+                    '<div class="wrap reveal cta-banner">' +
+                        '<div class="cta-banner-content">' +
+                            '<h2>Sẵn sàng bắt đầu?</h2>' +
+                            '<p>Đăng ký miễn phí và nhận ngay 100.000đ vào ví.</p>' +
+                            '<a href="#/register" class="btn btn-lg cta-btn">Tạo tài khoản miễn phí</a>' +
                         '</div>' +
                     '</div>' +
                 '</section>';

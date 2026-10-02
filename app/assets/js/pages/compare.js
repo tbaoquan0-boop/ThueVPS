@@ -50,7 +50,7 @@
                 { k: '',               v: p => '<a class="btn btn-line btn-sm" href="#/order?plan=' + p.slug + '">Đặt ' + escapeHTML(p.name) + '</a>' },
             ];
 
-            const table = '<table class="data-table compare-table reveal">' +
+            const table = '<div class="table-wrap reveal"><table class="data-table compare-table">' +
                 '<thead><tr><th></th>' +
                     selected.map(p => '<th class="compare-th" data-cat="' + escapeHTML(p.category) + '">' + escapeHTML(p.name) + '</th>').join('') +
                 '</tr></thead><tbody>' +
@@ -60,7 +60,7 @@
                             selected.map(p => '<td>' + r.v(p) + '</td>').join('') +
                         '</tr>'
                     )).join('') +
-                '</tbody></table>';
+                '</tbody></table></div>';
 
             const html =
                 '<section class="sec">' +

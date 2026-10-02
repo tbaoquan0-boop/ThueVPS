@@ -1,5 +1,5 @@
 /* =========================================================
-   pages/order.js — Đặt dịch vụ
+   pages/order.js — Đặt dịch vụ (Không mất focus / giật lag)
 ========================================================= */
 'use strict';
 
@@ -33,6 +33,52 @@
             return { plan, price, total, discount, couponInfo, couponError };
         },
 
+        renderSummaryHTML() {
+            const user = Session.current();
+            const q = this.quote();
+            if (!q) return '<div class="sum-line"><span>Vui lòng chọn cấu hình</span></div>';
+            return (
+                '<div class="sum-line"><span>' + escapeHTML(q.plan.name) + ' × ' + q.price.cycle_months + ' tháng</span><span>' + fmtVND(q.price.price) + '</span></div>' +
+                (q.discount > 0
+                    ? '<div class="sum-line" style="color:#047857;font-weight:500"><span><i class="bi bi-tag-fill"></i> Giảm (' + escapeHTML(this.state.coupon.toUpperCase()) + ')</span><span>-' + fmtVND(q.discount) + '</span></div>'
+                    : '') +
+                (q.couponError
+                    ? '<div class="sum-line" style="color:#b91c1c;font-size:.85rem"><span><i class="bi bi-exclamation-triangle"></i> ' + escapeHTML(q.couponError) + '</span></div>'
+                    : '') +
+                (q.couponInfo && !q.couponError
+                    ? '<div class="sum-line" style="color:#047857;font-size:.85rem"><span><i class="bi bi-check-circle-fill"></i> ' + escapeHTML(q.couponInfo.desc || 'Áp dụng thành công') + '</span></div>'
+                    : '') +
+                '<div class="sum-line total"><span>Tổng</span><span>' + fmtVND(q.total) + '</span></div>' +
+                '<div class="sum-line" style="font-size:.82rem;color:var(--muted)"><span>Số dư ví</span><span>' + fmtVND(user ? user.balance : 0) + '</span></div>' +
+                (user && q.total > user.balance
+                    ? '<div class="sum-line" style="color:#b91c1c;font-size:.85rem"><span><i class="bi bi-exclamation-triangle"></i> Không đủ số dư (thiếu ' + fmtVND(q.total - user.balance) + ')</span></div>'
+                    : '')
+            );
+        },
+
+        _syncURL() {
+            const usp = new URLSearchParams();
+            if (this.state.planSlug) usp.set('plan', this.state.planSlug);
+            if (this.state.osId) usp.set('os', this.state.osId);
+            if (this.state.cycle) usp.set('cycle', this.state.cycle);
+            if (this.state.hostname) usp.set('hostname', this.state.hostname);
+            if (this.state.coupon) usp.set('coupon', this.state.coupon);
+            const queryStr = usp.toString();
+            const newUrl = '#/order' + (queryStr ? '?' + queryStr : '');
+            window.history.replaceState(null, '', newUrl);
+        },
+
+        _updateSummaryDOM() {
+            const box = document.getElementById('order-summary-box');
+            if (box) box.innerHTML = this.renderSummaryHTML();
+            const btn = document.getElementById('order-submit-btn');
+            if (btn) {
+                const q = this.quote();
+                btn.textContent = 'Thanh toán ' + (q && q.total != null ? fmtVND(q.total) : '');
+            }
+            this._syncURL();
+        },
+
         render(query) {
             const user = Session.current();
             if (!user) {
@@ -45,8 +91,7 @@
             const allPlans = DB.all('plans').filter(p => p.is_active);
             this.state.planSlug = query.plan && allPlans.find(p => p.slug === query.plan) ? query.plan : (allPlans[0] ? allPlans[0].slug : '');
             this.state.osId    = query.os ? Number(query.os) : null;
-            this.state.cycle   = query.cycle && [1,3,6,24,36].includes(Number(query.cycle)) ? Number(query.cycle) : 12;
-            if (query.cycle === '12') this.state.cycle = 12;
+            this.state.cycle   = query.cycle && [1,3,6,12,24,36].includes(Number(query.cycle)) ? Number(query.cycle) : 12;
             this.state.hostname = query.hostname || '';
             this.state.coupon  = query.coupon || '';
 
@@ -76,6 +121,8 @@
 
             const allOs = DB.all('os_images').filter(o => o.is_active);
             const visibleOs = allOs.filter(o => plan.allow_windows || o.family !== 'windows');
+            if (!this.state.osId && visibleOs.length) this.state.osId = visibleOs[0].id;
+
             const osOptions = visibleOs.map(o =>
                 '<button type="button" class="pill ' + (o.id === this.state.osId ? 'on' : '') + '" ' +
                 'data-action="order-pick-os" data-id="' + o.id + '">' +
@@ -83,23 +130,9 @@
                 (o.desc ? '<div class="p">' + escapeHTML(o.desc) + '</div>' : '') +
                 '</button>'
             ).join('');
-            if (!this.state.osId && visibleOs.length) this.state.osId = visibleOs[0].id;
 
             const q = this.quote();
-            const summary = q ? (
-                    '<div class="sum-line"><span>' + escapeHTML(q.plan.name) + ' × ' + q.price.cycle_months + ' tháng</span><span>' + fmtVND(q.price.price) + '</span></div>' +
-                    (q.discount > 0
-                        ? '<div class="sum-line" style="color:#047857"><span><i class="bi bi-tag-fill"></i> Giảm (' + escapeHTML(this.state.coupon.toUpperCase()) + ')</span><span>-' + fmtVND(q.discount) + '</span></div>'
-                        : '') +
-                    (q.couponError
-                        ? '<div class="sum-line" style="color:#b91c1c;font-size:.85rem"><span><i class="bi bi-exclamation-triangle"></i> ' + escapeHTML(q.couponError) + '</span></div>'
-                        : '') +
-                    '<div class="sum-line total"><span>Tổng</span><span>' + fmtVND(q.total) + '</span></div>' +
-                    '<div class="sum-line" style="font-size:.82rem;color:var(--muted)"><span>Số dư ví</span><span>' + fmtVND(user.balance) + '</span></div>' +
-                    (q.total > user.balance
-                        ? '<div class="sum-line" style="color:#b91c1c;font-size:.85rem"><span><i class="bi bi-exclamation-triangle"></i> Không đủ số dư, thiếu ' + fmtVND(q.total - user.balance) + '</span></div>'
-                        : '')
-                ) : '<div class="sum-line"><span>Vui lòng chọn cấu hình</span></div>';
+            const summary = this.renderSummaryHTML();
 
             const html =
                 '<div class="wrap sec">' +
@@ -112,34 +145,34 @@
                         '<div>' +
                             '<div class="panel">' +
                                 '<div class="panel-head"><h3>1. Chọn gói</h3></div>' +
-                                '<div class="options">' + planOptions + '</div>' +
+                                '<div class="options" id="order-plan-options">' + planOptions + '</div>' +
                             '</div>' +
                             '<div class="panel">' +
                                 '<div class="panel-head"><h3>2. Hệ điều hành</h3></div>' +
-                                '<div class="options">' + osOptions + '</div>' +
+                                '<div class="options" id="order-os-options">' + osOptions + '</div>' +
                             '</div>' +
                             '<div class="panel">' +
                                 '<div class="panel-head"><h3>3. Chu kỳ thanh toán</h3></div>' +
-                                '<div class="options">' + cycleOptions + '</div>' +
+                                '<div class="options" id="order-cycle-options">' + cycleOptions + '</div>' +
                             '</div>' +
                             '<div class="panel">' +
                                 '<div class="panel-head"><h3>4. Hostname</h3></div>' +
-                                '<input type="text" name="hostname" class="input" value="' + escapeHTML(this.state.hostname) + '" placeholder="vd: server.example.com" data-change="order-change-host">' +
+                                '<input type="text" name="hostname" class="input" value="' + escapeHTML(this.state.hostname) + '" placeholder="vd: server.example.com" data-input="order-change-host" data-change="order-change-host" autocomplete="off">' +
                                 '<p style="color:var(--muted);font-size:.82rem;margin:8px 0 0">Để trống sẽ tự động tạo.</p>' +
                             '</div>' +
                             '<div class="panel">' +
                                 '<div class="panel-head"><h3>5. Mã giảm giá (tuỳ chọn)</h3></div>' +
                                 '<div style="display:flex;gap:8px">' +
-                                    '<input type="text" name="coupon" class="input" value="' + escapeHTML(this.state.coupon) + '" placeholder="VD: GIAM10" data-change="order-change-coupon">' +
-                                    '<button class="btn btn-line" data-action="order-apply-coupon">Áp dụng</button>' +
+                                    '<input type="text" name="coupon" class="input" value="' + escapeHTML(this.state.coupon) + '" placeholder="VD: GIAM10" data-input="order-input-coupon" data-change="order-change-coupon" autocomplete="off" style="text-transform:uppercase">' +
+                                    '<button type="button" class="btn btn-line" data-action="order-apply-coupon">Áp dụng</button>' +
                                 '</div>' +
                                 '<p style="color:var(--muted);font-size:.82rem;margin:8px 0 0">Thử: <b style="color:var(--ink)">GIAM10</b>, <b style="color:var(--ink)">WELCOME</b>, <b style="color:var(--ink)">STUDENT</b></p>' +
                             '</div>' +
                         '</div>' +
                         '<aside class="panel" style="position:sticky;top:90px">' +
                             '<div class="panel-head"><h3>Tóm tắt</h3></div>' +
-                            summary +
-                            '<button class="btn btn-solid btn-block btn-lg" style="margin-top:20px" data-action="order-submit">Thanh toán ' + (q && q.total != null ? fmtVND(q.total) : '') + '</button>' +
+                            '<div id="order-summary-box">' + summary + '</div>' +
+                            '<button id="order-submit-btn" class="btn btn-solid btn-block btn-lg" style="margin-top:20px" data-action="order-submit">Thanh toán ' + (q && q.total != null ? fmtVND(q.total) : '') + '</button>' +
                             '<p style="font-size:.82rem;color:var(--muted);margin-top:12px;text-align:center">Bằng việc thanh toán, bạn đồng ý với điều khoản sử dụng.</p>' +
                         '</aside>' +
                     '</div>' +
@@ -148,27 +181,90 @@
             return renderLayout(html);
         },
 
-        pickPlan(el)   { this._updateQuery({ plan: el.dataset.slug }); },
-        pickCycle(el)  { this._updateQuery({ cycle: el.dataset.cycle }); },
-        pickOs(el)     { this._updateQuery({ os: el.dataset.id }); },
-        changeHost(input) { this._updateQuery({ hostname: input.value }, false); },
-        changeCoupon(input) { this._updateQuery({ coupon: input.value }, false); },
-        applyCoupon() {
-            const v = document.querySelector('input[name="coupon"]').value.trim();
-            this._updateQuery({ coupon: v });
+        pickPlan(el) {
+            this.state.planSlug = el.dataset.slug;
+            const plan = DB.findWhere('plans', p => p.slug === this.state.planSlug);
+            if (!plan) return;
+
+            // Highlight plan button
+            document.querySelectorAll('[data-action="order-pick-plan"]').forEach(b => {
+                b.classList.toggle('on', b.dataset.slug === this.state.planSlug);
+            });
+
+            // Refresh cycles
+            const prices = DB.all('plan_prices').filter(pr => pr.plan_id === plan.id);
+            const cycleBox = document.getElementById('order-cycle-options');
+            if (cycleBox) {
+                cycleBox.innerHTML = prices.map(pr =>
+                    '<button type="button" class="pill ' + (pr.cycle_months === this.state.cycle ? 'on' : '') + '" ' +
+                    'data-action="order-pick-cycle" data-cycle="' + pr.cycle_months + '">' +
+                    '<div class="t">' + pr.cycle_months + ' tháng</div>' +
+                    '<div class="p">' + fmtVND(pr.price) + '</div>' +
+                    '</button>'
+                ).join('');
+            }
+
+            // Refresh OS
+            const allOs = DB.all('os_images').filter(o => o.is_active);
+            const visibleOs = allOs.filter(o => plan.allow_windows || o.family !== 'windows');
+            if (!visibleOs.find(o => o.id === this.state.osId)) {
+                this.state.osId = visibleOs[0] ? visibleOs[0].id : null;
+            }
+            const osBox = document.getElementById('order-os-options');
+            if (osBox) {
+                osBox.innerHTML = visibleOs.map(o =>
+                    '<button type="button" class="pill ' + (o.id === this.state.osId ? 'on' : '') + '" ' +
+                    'data-action="order-pick-os" data-id="' + o.id + '">' +
+                    '<div class="t">' + escapeHTML(o.name) + '</div>' +
+                    (o.desc ? '<div class="p">' + escapeHTML(o.desc) + '</div>' : '') +
+                    '</button>'
+                ).join('');
+            }
+
+            this._updateSummaryDOM();
         },
 
-        _updateQuery(patch, navigate) {
-            if (navigate === false) {
-                Object.assign(this.state, patch);
-                handleRoute();
-                return;
+        pickCycle(el) {
+            this.state.cycle = Number(el.dataset.cycle);
+            document.querySelectorAll('[data-action="order-pick-cycle"]').forEach(b => {
+                b.classList.toggle('on', Number(b.dataset.cycle) === this.state.cycle);
+            });
+            this._updateSummaryDOM();
+        },
+
+        pickOs(el) {
+            this.state.osId = Number(el.dataset.id);
+            document.querySelectorAll('[data-action="order-pick-os"]').forEach(b => {
+                b.classList.toggle('on', Number(b.dataset.id) === this.state.osId);
+            });
+            this._updateSummaryDOM();
+        },
+
+        changeHost(input) {
+            this.state.hostname = input.value;
+            this._syncURL();
+        },
+
+        inputCoupon(input) {
+            this.state.coupon = input.value.trim().toUpperCase();
+            this._updateSummaryDOM();
+        },
+
+        changeCoupon(input) {
+            this.state.coupon = input.value.trim().toUpperCase();
+            this._updateSummaryDOM();
+        },
+
+        applyCoupon() {
+            const inp = document.querySelector('input[name="coupon"]');
+            if (inp) this.state.coupon = inp.value.trim().toUpperCase();
+            this._updateSummaryDOM();
+            const q = this.quote();
+            if (q && q.couponError) {
+                Flash.show(q.couponError, 'danger');
+            } else if (q && q.couponInfo) {
+                Flash.show('Áp dụng mã ' + q.couponInfo.code + ' thành công (-' + fmtVND(q.discount) + ')', 'success');
             }
-            const q = Object.assign({}, Router.resolve().query, patch);
-            const usp = new URLSearchParams();
-            Object.entries(q).forEach(([k, v]) => { if (v !== '' && v != null) usp.set(k, v); });
-            Object.assign(this.state, patch);
-            Router.go('/order?' + usp.toString(), { preserveScroll: true });
         },
 
         submit() {
@@ -237,6 +333,7 @@
     window.App['order-pick-cycle']     = (el) => OrderPage.pickCycle(el);
     window.App['order-pick-os']        = (el) => OrderPage.pickOs(el);
     window.App['order-change-host']    = (inp) => OrderPage.changeHost(inp);
+    window.App['order-input-coupon']   = (inp) => OrderPage.inputCoupon(inp);
     window.App['order-change-coupon']  = (inp) => OrderPage.changeCoupon(inp);
     window.App['order-apply-coupon']   = () => OrderPage.applyCoupon();
     window.App['order-submit']         = () => OrderPage.submit();

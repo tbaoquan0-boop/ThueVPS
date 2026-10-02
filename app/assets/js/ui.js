@@ -67,6 +67,47 @@ const Flash = {
     },
 };
 
+const Modal = {
+    show({ title, body, footer = '', maxWidth = '580px' }) {
+        Modal.close();
+        const overlay = document.createElement('div');
+        overlay.id = 'app-modal-overlay';
+        overlay.className = 'modal-overlay';
+        overlay.innerHTML =
+            '<div class="modal-card" style="max-width:' + maxWidth + '">' +
+                '<div class="modal-header">' +
+                    '<h3 style="margin:0;font-size:1.15rem;font-weight:600">' + title + '</h3>' +
+                    '<button type="button" class="btn-close-modal" aria-label="Đóng" style="background:none;border:none;font-size:1.4rem;color:var(--muted);cursor:pointer;line-height:1" onclick="Modal.close()">&times;</button>' +
+                '</div>' +
+                '<div class="modal-body">' + body + '</div>' +
+                (footer ? '<div class="modal-footer">' + footer + '</div>' : '') +
+            '</div>';
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) Modal.close();
+        });
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+    },
+    close() {
+        const el = document.getElementById('app-modal-overlay');
+        if (el) el.remove();
+        document.body.style.overflow = '';
+    }
+};
+
+const copyText = (text, msg) => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            Flash.show(msg || ('Đã sao chép: ' + text), 'success');
+        }).catch(() => {
+            Flash.show('Đã sao chép: ' + text, 'info');
+        });
+    } else {
+        Flash.show('Đã sao chép: ' + text, 'info');
+    }
+};
+
+
 // ===== Layout =====
 function renderLayout(content) {
     const user = Session.current();
@@ -86,9 +127,9 @@ function renderLayout(content) {
         '  <div class="wrap nav-inner">',
         '    <a href="#/" class="brand">',
         '      <div class="brand-mark"><i class="bi bi-cloud-fill"></i></div>',
-        '      <span>VPSSIEUTOC.VN</span>',
+        '      <span>TáoVPS Web</span>',
         '    </a>',
-        '    <ul class="nav-links">',
+        '    <ul class="nav-links" id="nav-links">',
         '      <li><a href="#/">Trang chủ</a></li>',
         '      <li><a href="#/pricing">Cloud VPS</a></li>',
         '      <li><a href="#/pricing?cat=ryzen">AMD Ryzen</a></li>',
@@ -102,6 +143,9 @@ function renderLayout(content) {
               '<a href="#" id="btn-logout" class="btn btn-line btn-sm">Đăng xuất</a>'
             : '<a href="#/login" class="btn btn-ghost btn-sm">Đăng nhập</a>' +
               '<a href="#/register" class="btn btn-solid btn-sm">Đăng ký</a>',
+        '      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">',
+        '        <i class="bi bi-list"></i>',
+        '      </button>',
         '    </div>',
         '  </div>',
         '</nav>',
@@ -112,7 +156,7 @@ function renderLayout(content) {
         '  <div class="wrap">',
         '    <div class="foot-grid">',
         '      <div class="foot-brand">',
-        '        <h4 style="display:flex;align-items:center;gap:8px"><span class="brand-mark" style="width:24px;height:24px;font-size:.85rem"><i class="bi bi-cloud-fill"></i></span> VPSSIEUTOC.VN</h4>',
+        '        <h4 style="display:flex;align-items:center;gap:8px"><span class="brand-mark" style="width:24px;height:24px;font-size:.85rem"><i class="bi bi-cloud-fill"></i></span> TáoVPS Web</h4>',
         '        <p>Dịch vụ Cloud VPS, Hosting, Dedicated Server hàng đầu Việt Nam. Hạ tầng NVMe, network 10Gbps, uptime 99.99%.</p>',
         '      </div>',
         '      <div>',
@@ -122,20 +166,21 @@ function renderLayout(content) {
         '        <a href="#/pricing?cat=highfreq">Xung nhịp cao</a>',
         '        <a href="#/pricing?cat=gpu">GPU Server</a>',
         '        <a href="#/pricing?cat=dedicated">Dedicated</a>',
+        '        <a href="#/compare">So sánh gói</a>',
         '      </div>',
         '      <div>',
         '        <h4>Hỗ trợ</h4>',
         '        <a href="#/docs">Tài liệu</a>',
-        '        <a href="#/tickets">Tickets</a>',
+        '        <a href="#/dashboard?view=tickets">Tickets hỗ trợ</a>',
         '        <a href="#/announcements">Thông báo</a>',
         '      </div>',
         '      <div>',
         '        <h4>Liên hệ</h4>',
-        '        <a href="#">Hotline: 1900 6868</a>',
-        '        <a href="#">support@vpssieutoc.vn</a>',
+        '        <a href="tel:19006868"><i class="bi bi-telephone"></i> Hotline: 1900 6868</a>',
+        '        <a href="mailto:support@taovps.vn"><i class="bi bi-envelope"></i> support@taovps.vn</a>',
         '      </div>',
         '    </div>',
-        '    <div class="foot-bottom">© 2026 VPSSIEUTOC.VN</div>',
+        '    <div class="foot-bottom">© 2026 TáoVPS Web</div>',
         '  </div>',
         '</footer>',
     ].join('\n');
@@ -153,3 +198,6 @@ window.daysBetween = daysBetween;
 window.fromMonthly = fromMonthly;
 window.Flash = Flash;
 window.renderLayout = renderLayout;
+window.Modal = Modal;
+window.copyText = copyText;
+

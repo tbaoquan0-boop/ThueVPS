@@ -19,7 +19,7 @@
         var users = DB.all('users');
         if (users.length >= 2) return;
         var samples = [
-            { id:1, name:'Admin',         email:'admin@vpssieutoc.vn',    balance:0,       role:'admin',   status:'active', password:'admin123', phone:'0900000000', created_at:'2025-01-10' },
+            { id:1, name:'Admin',         email:'admin@taovps.vn',    balance:0,       role:'admin',   status:'active', password:'admin123', phone:'0900000000', created_at:'2025-01-10' },
             { id:2, name:'Nguyễn Văn A',  email:'nguyenvana@gmail.com',   balance:520000,   role:'customer',status:'active', password:'user123', phone:'0912345001', created_at:'2025-03-12' },
             { id:3, name:'Trần Thị B',    email:'tranb@example.com',      balance:2100000,  role:'customer',status:'active', password:'user123', phone:'0912345002', created_at:'2025-05-04' },
             { id:4, name:'Lê Văn C',      email:'levanc@gmail.com',       balance:0,        role:'customer',status:'locked', password:'user123', phone:'0912345003', created_at:'2025-09-20' },

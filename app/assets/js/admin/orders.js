@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    admin/orders.js — Quản lý đơn hàng (CRUD thật)
    ========================================================= */
 'use strict';
@@ -38,20 +38,25 @@
     }
 
     function planName(id) {
-        var p = DB.find('plans', id);
-        return p ? p.name : ('#' + id);
+        if (!id) return 'VPS';
+        var p = typeof id === 'number' ? DB.find('plans', id) : DB.findWhere('plans', function (pl) { return pl.id == id || pl.slug === id; });
+        return p ? p.name : ('Gói #' + id);
     }
     function userName(id) {
         var u = DB.find('users', id);
-        return u ? u.name : ('User #' + id);
+        return u ? (u.name || u.email) : ('User #' + id);
+    }
+    function userEmail(id) {
+        var u = DB.find('users', id);
+        return u ? u.email : '';
     }
 
     function getFiltered() {
-        var q = (filters.q || '').toLowerCase();
+        var q = (filters.q || '').toLowerCase().trim();
         return DB.all('orders').filter(function (o) {
             if (filters.status !== 'all' && o.status !== filters.status) return false;
             if (q) {
-                var hay = (o.id + ' ' + userName(o.user_id) + ' ' + planName(o.plan_id)).toLowerCase();
+                var hay = (String(o.id) + ' ' + userName(o.user_id) + ' ' + userEmail(o.user_id) + ' ' + planName(o.plan_id || o.plan_slug) + ' ' + (o.hostname || '')).toLowerCase();
                 if (hay.indexOf(q) === -1) return false;
             }
             return true;
@@ -68,7 +73,7 @@
             fields: [
                 { name: 'user_id', label: 'Khách hàng', type: 'select', required: true, value: order && order.user_id, options: users.map(function (u) { return { value: u.id, label: u.name + ' (' + u.email + ')' }; }) },
                 { name: 'plan_id', label: 'Gói dịch vụ', type: 'select', required: true, value: order && order.plan_id, options: plans.map(function (p) { return { value: p.id, label: p.name }; }) },
-                { name: 'cycle', label: 'Chu kỳ (tháng)', type: 'number', required: true, value: order ? order.cycle : 1 },
+                { name: 'cycle', label: 'Chu kỳ (tháng)', type: 'number', required: true, value: order ? (order.cycle_months || order.cycle || 1) : 1 },
                 { name: 'total', label: 'Tổng tiền (₫)', type: 'number', required: true, value: order ? order.total : 0 },
                 { name: 'status', label: 'Trạng thái', type: 'select', value: order ? order.status : 'pending', options: [
                     { value: 'pending', label: 'Chờ thanh toán' },
@@ -89,18 +94,18 @@
                 if (isEdit) {
                     var prev = order;
                     DB.update('orders', order.id, {
-                        user_id: uid, plan_id: pid, cycle: cycle, total: total, status: vals.status,
+                        user_id: uid, plan_id: pid, cycle: cycle, cycle_months: cycle, total: total, status: vals.status,
                     });
                     // Nếu đổi từ pending -> paid: cộng tiền vào ví user (chưa cộng trước đó)
                     if (prev.status !== 'paid' && vals.status === 'paid') {
                         var u = DB.find('users', uid);
-                        if (u) DB.update('users', u.id, { balance: (u.balance || 0) }); // no-op, ta không tự trừ tiền user
+                        if (u) DB.update('users', u.id, { balance: (u.balance || 0) });
                     }
                     ui.toast('Đã cập nhật ' + order.id, 'success');
                 } else {
                     var oid = 'ORD-' + Date.now();
                     DB.insert('orders', {
-                        id: oid, user_id: uid, plan_id: pid, cycle: cycle, total: total,
+                        id: oid, user_id: uid, plan_id: pid, cycle: cycle, cycle_months: cycle, total: total,
                         status: vals.status, created_at: new Date().toISOString(),
                     });
                     ui.toast('Đã tạo ' + oid, 'success');
@@ -114,25 +119,27 @@
         seedIfEmpty();
         var orders = getFiltered();
         var all = DB.all('orders');
-        var totalRev = all.reduce(function (s, o) { return s + (o.status === 'paid' ? (o.total || 0) : 0); }, 0);
+        var totalRev = all.reduce(function (s, o) { return s + (o.status === 'paid' ? (o.total != null ? o.total : (o.total_amount || 0)) : 0); }, 0);
 
         var rows = orders.map(function (o) {
+            var cycleVal = o.cycle_months || o.cycle || 1;
+            var orderTotal = o.total != null ? o.total : (o.total_amount || 0);
             return '<tr>' +
-                '<td><b>' + esc(o.id) + '</b>' +
+                '<td><b>' + esc(String(o.id)) + '</b>' +
                     '<div style="color:var(--vm-muted);font-size:.72rem">' + esc((o.created_at || '').slice(0, 10)) + '</div></td>' +
                 '<td>' + esc(userName(o.user_id)) + '</td>' +
-                '<td>' + esc(planName(o.plan_id)) + ' <span class="vm-muted">· ' + o.cycle + ' tháng</span></td>' +
-                '<td><b>' + vnd(o.total) + '</b></td>' +
+                '<td>' + esc(planName(o.plan_id || o.plan_slug)) + ' <span class="vm-muted">· ' + cycleVal + ' tháng</span></td>' +
+                '<td><b>' + vnd(orderTotal) + '</b></td>' +
                 '<td>' + statusBadge(o.status) + '</td>' +
                 '<td style="white-space:nowrap">' +
-                    '<button class="vm-btn sm" data-action="view" data-id="' + esc(o.id) + '" title="Xem"><i class="bi bi-eye"></i></button> ' +
-                    '<button class="vm-btn sm" data-action="edit" data-id="' + esc(o.id) + '" title="Sửa"><i class="bi bi-pencil"></i></button> ' +
+                    '<button class="vm-btn sm" data-action="view" data-id="' + esc(String(o.id)) + '" title="Xem"><i class="bi bi-eye"></i></button> ' +
+                    '<button class="vm-btn sm" data-action="edit" data-id="' + esc(String(o.id)) + '" title="Sửa"><i class="bi bi-pencil"></i></button> ' +
                     (o.status === 'pending'
-                        ? '<button class="vm-btn sm" data-action="approve" data-id="' + esc(o.id) + '" title="Duyệt" style="color:var(--vm-success)"><i class="bi bi-check2-circle"></i></button> ' +
-                          '<button class="vm-btn sm danger" data-action="cancel" data-id="' + esc(o.id) + '" title="Hủy"><i class="bi bi-x-circle"></i></button>'
+                        ? '<button class="vm-btn sm" data-action="approve" data-id="' + esc(String(o.id)) + '" title="Duyệt" style="color:var(--vm-success)"><i class="bi bi-check2-circle"></i></button> ' +
+                          '<button class="vm-btn sm danger" data-action="cancel" data-id="' + esc(String(o.id)) + '" title="Hủy"><i class="bi bi-x-circle"></i></button>'
                         : '') +
                     (o.status === 'paid'
-                        ? '<button class="vm-btn sm" data-action="refund" data-id="' + esc(o.id) + '" title="Hoàn tiền"><i class="bi bi-arrow-counterclockwise"></i></button>'
+                        ? '<button class="vm-btn sm" data-action="refund" data-id="' + esc(String(o.id)) + '" title="Hoàn tiền"><i class="bi bi-arrow-counterclockwise"></i></button>'
                         : '') +
                 '</td>' +
             '</tr>';
@@ -180,12 +187,15 @@
         if (action === 'add') orderForm(null);
         else if (action === 'edit' && order) orderForm(order);
         else if (action === 'view' && order) {
+            var cycleVal = order.cycle_months || order.cycle || 1;
             ui.Modal({
-                title: 'Đơn hàng ' + order.id,
+                title: 'Chi tiết đơn hàng #' + order.id,
                 body: '<table class="vm-table"><tbody>' +
-                    '<tr><td style="color:var(--vm-muted)">Khách hàng</td><td>' + esc(userName(order.user_id)) + '</td></tr>' +
-                    '<tr><td style="color:var(--vm-muted)">Gói</td><td>' + esc(planName(order.plan_id)) + ' · ' + order.cycle + ' tháng</td></tr>' +
-                    '<tr><td style="color:var(--vm-muted)">Tổng</td><td><b>' + vnd(order.total) + '</b></td></tr>' +
+                    '<tr><td style="color:var(--vm-muted)">Mã đơn</td><td><b>#' + esc(String(order.id)) + '</b></td></tr>' +
+                    '<tr><td style="color:var(--vm-muted)">Khách hàng</td><td>' + esc(userName(order.user_id)) + ' <span class="vm-muted">(' + esc(userEmail(order.user_id)) + ')</span></td></tr>' +
+                    '<tr><td style="color:var(--vm-muted)">Gói dịch vụ</td><td>' + esc(planName(order.plan_id || order.plan_slug)) + ' · <b>' + cycleVal + ' tháng</b></td></tr>' +
+                    (order.hostname ? '<tr><td style="color:var(--vm-muted)">Hostname</td><td><code>' + esc(order.hostname) + '</code></td></tr>' : '') +
+                    '<tr><td style="color:var(--vm-muted)">Tổng tiền</td><td><b style="color:var(--vm-accent);font-size:1.05rem">' + vnd(order.total != null ? order.total : (order.total_amount || 0)) + '</b></td></tr>' +
                     '<tr><td style="color:var(--vm-muted)">Trạng thái</td><td>' + statusBadge(order.status) + '</td></tr>' +
                     '<tr><td style="color:var(--vm-muted)">Ngày tạo</td><td>' + esc((order.created_at || '').slice(0, 19).replace('T', ' ')) + '</td></tr>' +
                     '</tbody></table>',
@@ -222,7 +232,7 @@
         else if (action === 'refund' && order && order.status === 'paid') {
             ui.confirm({
                 title: 'Hoàn tiền',
-                message: 'Hoàn ' + vnd(order.total) + ' cho đơn ' + order.id + '? Đơn sẽ chuyển sang trạng thái Hoàn tiền.',
+                message: 'Hoàn ' + vnd(order.total != null ? order.total : (order.total_amount || 0)) + ' cho đơn ' + order.id + '? Đơn sẽ chuyển sang trạng thái Hoàn tiền.',
                 okText: 'Hoàn tiền',
                 onOk: function () {
                     DB.update('orders', order.id, { status: 'refunded' });
