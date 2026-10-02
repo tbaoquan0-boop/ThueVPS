@@ -1,4 +1,4 @@
-﻿/* =========================================================
+/* =========================================================
    admin/servers.js — Quản lý máy chủ (CRUD thật)
    ========================================================= */
 'use strict';
@@ -57,13 +57,41 @@
             '<div style="font-size:.72rem;color:var(--vm-muted);margin-top:3px">' + v + '%</div>';
     }
 
+    function getPlanName(s) {
+        if (s.plan_name) return s.plan_name;
+        if (s.plan_slug) {
+            var pl = DB.findWhere('plans', function (p) { return p.slug === s.plan_slug; });
+            if (pl) return pl.name;
+            return s.plan_slug.toUpperCase();
+        }
+        if (s.plan_id) {
+            var pl = DB.find('plans', s.plan_id);
+            if (pl) return pl.name;
+            return 'Gói #' + s.plan_id;
+        }
+        return 'Cloud VPS';
+    }
+
+    function getOwnerInfo(s) {
+        var uid = s.user_id || s.owner_id;
+        if (uid) {
+            var u = DB.find('users', uid);
+            if (u) return { id: u.id, name: u.name, email: u.email };
+        }
+        if (s.owner_email) {
+            return { id: null, name: s.owner_email, email: s.owner_email };
+        }
+        return null;
+    }
+
     function getFiltered() {
-        var q = (filters.q || '').toLowerCase();
+        var q = (filters.q || '').toLowerCase().trim();
         return DB.all('servers').filter(function (s) {
-            if (filters.region !== 'all' && s.region !== filters.region) return false;
+            if (filters.region !== 'all' && s.region && s.region !== filters.region) return false;
             if (filters.status !== 'all' && s.status !== filters.status) return false;
             if (q) {
-                var hay = ((s.hostname || '') + ' ' + (s.ip || '') + ' ' + (s.owner_email || '')).toLowerCase();
+                var owner = getOwnerInfo(s);
+                var hay = ((s.hostname || '') + ' ' + (s.ip || '') + ' ' + (owner ? (owner.name + ' ' + owner.email) : '') + ' ' + getPlanName(s)).toLowerCase();
                 if (hay.indexOf(q) === -1) return false;
             }
             return true;
@@ -89,9 +117,9 @@
                     { value: 'stopped', label: 'Stopped' },
                     { value: 'offline', label: 'Offline' },
                 ]},
-                { name: 'owner_id', label: 'Owner (khách hàng)', type: 'select', value: server && server.owner_id, options: [{ value: '', label: '— Không có —' }].concat(users.filter(function (u) { return u.role === 'customer'; }).map(function (u) { return { value: u.id, label: u.name + ' (' + u.email + ')' }; })) },
-                { name: 'cpu', label: 'CPU (%)', type: 'number', value: server ? server.cpu : 10 },
-                { name: 'ram', label: 'RAM (%)', type: 'number', value: server ? server.ram : 10 },
+                { name: 'owner_id', label: 'Owner (khách hàng)', type: 'select', value: server && (server.owner_id || server.user_id), options: [{ value: '', label: '— Không có —' }].concat(users.filter(function (u) { return u.role === 'customer'; }).map(function (u) { return { value: u.id, label: u.name + ' (' + u.email + ')' }; })) },
+                { name: 'cpu', label: 'CPU (vCPU / %)', type: 'number', value: server ? server.cpu : 2 },
+                { name: 'ram', label: 'RAM (GB / %)', type: 'number', value: server ? server.ram : 4 },
             ],
             onSubmit: function (vals) {
                 if (!vals.hostname) throw new Error('Hostname không được trống');
@@ -101,6 +129,7 @@
                         plan_id: Number(vals.plan_id) || null,
                         region: vals.region, status: vals.status,
                         owner_id: vals.owner_id ? Number(vals.owner_id) : null,
+                        user_id: vals.owner_id ? Number(vals.owner_id) : null,
                         cpu: Number(vals.cpu) || 0, ram: Number(vals.ram) || 0,
                     });
                     ui.toast('Đã cập nhật ' + vals.hostname, 'success');
@@ -113,8 +142,9 @@
                         hostname: vals.hostname, ip: vals.ip || ('10.' + Math.floor(Math.random() * 200) + '.0.1'),
                         plan_id: Number(vals.plan_id) || null, plan_name: plan ? plan.name : '',
                         region: vals.region, status: vals.status,
-                        owner_id: owner ? owner.id : null, owner_email: owner ? owner.email : '',
-                        cpu: Number(vals.cpu) || 10, ram: Number(vals.ram) || 10,
+                        owner_id: owner ? owner.id : null, user_id: owner ? owner.id : null,
+                        owner_email: owner ? owner.email : '',
+                        cpu: Number(vals.cpu) || 2, ram: Number(vals.ram) || 4,
                         created_at: new Date().toISOString(),
                     });
                     ui.toast('Đã cấp phát ' + vals.hostname, 'success');
@@ -134,18 +164,23 @@
         var stopped = all.filter(function (s) { return s.status === 'stopped' || s.status === 'offline'; }).length;
 
         var rows = servers.map(function (s) {
-            var plan = s.plan_name || (DB.find('plans', s.plan_id) || {}).name || ('Gói #' + s.plan_id);
+            var plan = getPlanName(s);
+            var owner = getOwnerInfo(s);
+            var ownerDisplay = owner ? ('<b>' + esc(owner.name || '') + '</b><div style="color:var(--vm-muted);font-size:.72rem">' + esc(owner.email || '') + '</div>') : '<span class="vm-muted">—</span>';
+            var cpuDisplay = (s.cpu != null && s.cpu <= 32) ? ('<b>' + s.cpu + ' vCPU</b>') : bar(s.cpu || 10);
+            var ramDisplay = (s.ram != null && s.ram <= 64) ? ('<b>' + s.ram + ' GB RAM</b>') : bar(s.ram || 10);
+
             return '<tr>' +
                 '<td><b>' + esc(s.hostname) + '</b>' +
                     '<div style="color:var(--vm-muted);font-size:.72rem;font-family:monospace">' + esc(s.ip || '') + '</div></td>' +
                 '<td>' + esc(plan) + '</td>' +
-                '<td><span class="vm-badge muted">' + esc(s.region || '') + '</span></td>' +
+                '<td><span class="vm-badge muted">' + esc(s.region || 'HN-1') + '</span></td>' +
                 '<td>' + dot(s.status) + statusTxt(s.status) + '</td>' +
-                '<td>' + bar(s.cpu || 0) + '</td>' +
-                '<td>' + bar(s.ram || 0) + '</td>' +
-                '<td style="font-size:.78rem">' + esc(s.owner_email || '—') + '</td>' +
+                '<td>' + cpuDisplay + '</td>' +
+                '<td>' + ramDisplay + '</td>' +
+                '<td style="font-size:.82rem">' + ownerDisplay + '</td>' +
                 '<td style="white-space:nowrap">' +
-                    '<button class="vm-btn sm" data-action="console" data-id="' + s.id + '" title="Console"><i class="bi bi-terminal"></i></button> ' +
+                    '<button class="vm-btn sm" data-action="console" data-id="' + s.id + '" title="Web Console"><i class="bi bi-terminal"></i></button> ' +
                     (s.status === 'running'
                         ? '<button class="vm-btn sm" data-action="reboot" data-id="' + s.id + '" title="Reboot"><i class="bi bi-arrow-clockwise"></i></button> ' +
                           '<button class="vm-btn sm danger" data-action="stop" data-id="' + s.id + '" title="Stop"><i class="bi bi-power"></i></button>'
@@ -246,27 +281,78 @@
                     });
                 }
                 else if (action === 'console' && sv) {
-                    var fakeLog = '' +
-                        '[' + new Date().toISOString() + '] Booting ' + sv.hostname + ' (' + sv.ip + ')...\n' +
-                        '[ok] Network interface up\n' +
-                        '[ok] Mounted /dev/vda1 -> /\n' +
-                        '[ok] Started nginx.service\n' +
-                        '[ok] Started sshd.service\n' +
-                        '[ok] Reached target Multi-User System\n' +
-                        'Welcome to Ubuntu 22.04 LTS\n' +
-                        'root@' + sv.hostname + ':~# ▮';
+                    var fakeLog = [
+                        '[' + new Date().toISOString() + '] Node: ' + sv.hostname + ' (' + (sv.ip || '10.0.1.1') + ')',
+                        '[ok] Network interface eth0 up (1000 Mbps full duplex)',
+                        '[ok] Mounted /dev/vda1 on / type ext4 (rw,relatime)',
+                        '[ok] Started systemd-journald.service',
+                        '[ok] Started OpenSSH Server Daemon',
+                        '[ok] Started nginx.service - A high performance web server',
+                        '[ok] Reached target Multi-User System',
+                        'Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-generic x86_64)',
+                        'Type "help" to see available admin commands.',
+                        'root@' + sv.hostname + ':~# '
+                    ];
                     var body = document.createElement('div');
-                    body.innerHTML = '<pre style="background:#0c0e15;color:#a3e635;padding:14px;border-radius:8px;font-size:.78rem;line-height:1.5;max-height:340px;overflow:auto;font-family:ui-monospace,monospace;margin:0">' + esc(fakeLog) + '</pre>' +
-                        '<div style="margin-top:12px;display:flex;gap:8px">' +
-                            '<input class="ad-inp" placeholder="Gõ lệnh shell… (demo)" disabled>' +
-                            '<button class="ad-btn" disabled>Send</button>' +
+                    body.innerHTML = '<div style="background:#090b11;border:1px solid #1e293b;border-radius:10px;padding:16px;box-shadow:inset 0 2px 10px rgba(0,0,0,.5)">' +
+                        '<div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #1e293b">' +
+                            '<span style="width:10px;height:10px;border-radius:50%;background:#ef4444;display:inline-block"></span>' +
+                            '<span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block"></span>' +
+                            '<span style="width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block"></span>' +
+                            '<span style="margin-left:8px;font-size:.74rem;color:#64748b;font-family:monospace">SSH Root Console · ' + esc(sv.hostname) + '</span>' +
                         '</div>' +
-                        '<div style="margin-top:8px;font-size:.78rem;color:var(--vm-muted)"><i class="bi bi-info-circle"></i> Console giả lập để demo UI. Tích hợp thực tế cần WebSocket + SSH.</div>';
-                    ui.Modal({ title: 'Console · ' + sv.hostname, body: body, size: 'lg',
-                        footer: '<button type="button" class="ad-btn" data-act="ok">Đóng</button>' });
+                        '<pre id="adConsolePre" style="color:#4ade80;font-size:.8rem;line-height:1.55;max-height:280px;overflow-y:auto;font-family:ui-monospace,Menlo,Consolas,monospace;margin:0;white-space:pre-wrap">' + esc(fakeLog.join('\n')) + '</pre>' +
+                        '<form id="adConsoleForm" style="margin-top:12px;display:flex;gap:8px">' +
+                            '<span style="color:#60a5fa;font-family:monospace;font-size:.85rem;display:flex;align-items:center">#</span>' +
+                            '<input class="ad-inp" id="adConsoleInp" placeholder="Nhập lệnh (help, uptime, free, df, top, reboot, clear)…" autocomplete="off" style="font-family:monospace;font-size:.85rem;background:#0f172a;color:#f8fafc;border-color:#334155">' +
+                            '<button type="submit" class="ad-btn primary sm"><i class="bi bi-terminal"></i> Chạy</button>' +
+                        '</form>' +
+                    '</div>';
+
+                    ui.Modal({ title: 'SSH Web Console · ' + sv.hostname, body: body, size: 'lg',
+                        footer: '<button type="button" class="ad-btn" data-act="ok">Đóng Console</button>' });
                     var m = document.getElementById('adModalRoot').lastChild;
                     var okBtn = m.querySelector('[data-act=ok]');
                     if (okBtn) okBtn.addEventListener('click', function () { ui.closeModal(); });
+
+                    var pre = m.querySelector('#adConsolePre');
+                    var form = m.querySelector('#adConsoleForm');
+                    var inp = m.querySelector('#adConsoleInp');
+                    if (inp) setTimeout(function () { inp.focus(); }, 100);
+
+                    if (form) {
+                        form.addEventListener('submit', function (ev) {
+                            ev.preventDefault();
+                            var cmd = (inp.value || '').trim();
+                            if (!cmd) return;
+                            inp.value = '';
+                            var out = '';
+                            var lower = cmd.toLowerCase();
+                            if (lower === 'help') {
+                                out = 'Các lệnh khả dụng: help, uptime, free, df, top, reboot, ip, clear, exit';
+                            } else if (lower === 'uptime') {
+                                out = ' 17:20:00 up 42 days, 3:14, 1 user, load average: 0.12, 0.08, 0.05';
+                            } else if (lower === 'free' || lower === 'free -m') {
+                                out = '               total        used        free      shared  buff/cache   available\nMem:            ' + (sv.ram ? sv.ram * 1024 : 4096) + '        1280        2140          12         676        2816\nSwap:           2048           0        2048';
+                            } else if (lower === 'df' || lower === 'df -h') {
+                                out = 'Filesystem      Size  Used Avail Use% Mounted on\n/dev/vda1        ' + (sv.disk || 40) + 'G  8.2G   30G  22% /\nnone            4.0K     0  4.0K   0% /sys/fs/cgroup\nudev            1.9G     0  1.9G   0% /dev';
+                            } else if (lower === 'ip' || lower === 'ip a') {
+                                out = '1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536\n    inet 127.0.0.1/8 scope host lo\n2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500\n    inet ' + (sv.ip || '10.0.1.1') + '/24 brd 10.0.1.255 scope global eth0';
+                            } else if (lower === 'top') {
+                                out = 'Tasks: 104 total, 1 running, 103 sleeping\n%Cpu(s): 2.4 us, 1.1 sy, 0.0 ni, 96.5 id\nPID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\n 812 root      20   0  712400  42100  18200 S   1.8   1.2   4:12.30 nginx\n1042 mysql     20   0 1482000 248000  28100 S   0.9   6.2  18:40.12 mysqld';
+                            } else if (lower === 'clear') {
+                                pre.textContent = 'root@' + sv.hostname + ':~# ';
+                                return;
+                            } else if (lower === 'reboot') {
+                                out = 'Broadcast message from root@' + sv.hostname + ':\nThe system is going down for reboot NOW!';
+                                DB.update('servers', sv.id, { status: 'running' });
+                            } else {
+                                out = 'bash: ' + cmd + ': command not found';
+                            }
+                            pre.textContent += cmd + '\n' + out + '\nroot@' + sv.hostname + ':~# ';
+                            pre.scrollTop = pre.scrollHeight;
+                        });
+                    }
                 }
             });
         });

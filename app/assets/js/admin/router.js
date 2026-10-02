@@ -31,7 +31,7 @@ const AdminRouter = {
         var handler = this.routes[path] || this.routes['/dashboard'];
         var title = this.titles[path] || this.titles['/dashboard'] || 'Dashboard';
 
-        document.title = title + ' · Admin · VPSSIEUTOC.VN';
+        document.title = title + ' · Admin · TáoVPS Web';
         var titleEl = document.getElementById('adPageTitle');
         if (titleEl) titleEl.textContent = title;
 

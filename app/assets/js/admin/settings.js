@@ -21,8 +21,8 @@
     }
     function defaults() {
         return {
-            site_name: 'VPSSIEUTOC.VN',
-            contact_email: 'support@vpssieutoc.vn',
+            site_name: 'TáoVPS Web',
+            contact_email: 'support@taovps.vn',
             hotline: '1900 6868',
             timezone: 'Asia/Ho_Chi_Minh',
             notify_email_order: true,
@@ -33,9 +33,9 @@
             sec_anti_brute: true,
             sec_ip_whitelist: false,
             sec_audit_log: true,
-            smtp_host: 'smtp.vpssieutoc.vn',
+            smtp_host: 'smtp.taovps.vn',
             smtp_port: '587',
-            smtp_user: 'noreply@vpssieutoc.vn',
+            smtp_user: 'noreply@taovps.vn',
             pay_vcb: true,
             pay_momo: true,
             pay_vnpay: false,
