@@ -35,11 +35,21 @@ const Router = {
         bindGlobalEvents();
     },
 
-    go(path) {
+    go(path, opts) {
         if (!path.startsWith('/')) path = '/' + path;
-        if (window.location.hash !== '#' + path) {
-            window.location.hash = '#' + path;
+        const preserveScroll = opts && opts.preserveScroll;
+        const newHash = '#' + path;
+        if (window.location.hash !== newHash) {
+            if (preserveScroll) {
+                const y = window.scrollY, x = window.scrollX;
+                window.history.replaceState({ preserveScroll: true, scrollX: x, scrollY: y }, '', newHash);
+            } else {
+                window.location.hash = newHash;
+            }
         } else {
+            if (preserveScroll) {
+                window.history.replaceState({ preserveScroll: true, scrollX: window.scrollX, scrollY: window.scrollY }, '', newHash);
+            }
             handleRoute();
         }
     },
@@ -59,12 +69,20 @@ function handleRoute() {
     const m = Router.match(pathname);
     const root = document.getElementById('app');
     if (!root) return;
+    // Lưu scroll position trước khi render, restore sau để tránh giật khi re-render cùng route
+    const savedY = window.scrollY;
+    const savedX = window.scrollX;
+    const skipScroll = window.history.state && window.history.state.preserveScroll;
     if (!m) { Router.render404(); return; }
     try {
         const html = m.handler({ params: m.params, query });
         root.innerHTML = html;
         bindGlobalEvents();
-        window.scrollTo({ top: 0 });
+        if (!skipScroll) {
+            window.scrollTo({ top: 0 });
+        } else {
+            window.scrollTo(savedX, savedY);
+        }
     } catch (e) {
         console.error('Route error', e);
         root.innerHTML = renderLayout(
@@ -74,6 +92,7 @@ function handleRoute() {
             escapeHTML(e.stack || e.message) + '</pre></div></div>'
         );
         bindGlobalEvents();
+        window.scrollTo({ top: 0 });
     }
 }
 
